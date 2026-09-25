@@ -8,10 +8,10 @@ import (
 func TestGetAPIKey(t *testing.T) {
 	// We define a "table" of different test cases
 	tests := []struct {
-		name       string
-		headers    http.Header
-		wantKey    string
-		wantErr    bool
+		name    string
+		headers http.Header
+		wantKey string
+		wantErr bool
 	}{
 		{
 			name:    "Valid API Key",
@@ -42,7 +42,7 @@ func TestGetAPIKey(t *testing.T) {
 			if (err != nil) != tc.wantErr {
 				t.Fatalf("GetAPIKey() error = %v, wantErr %v", err, tc.wantErr)
 			}
-			
+
 			// Check if the key matches what we expected
 			if gotKey != tc.wantKey {
 				t.Fatalf("GetAPIKey() got = %v, want %v", gotKey, tc.wantKey)
